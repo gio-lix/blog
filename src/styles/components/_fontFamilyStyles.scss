@@ -1,0 +1,58 @@
+.font-select-button {
+  color: #fff;
+  background-color: rgba($color: #fff, $alpha: 0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+
+  svg {
+    height: 2.4rem;
+    transition: transform 0.4s;
+  }
+}
+
+.font-selection-dropdown {
+  background-color: #323133;
+  border: 1px solid #6d7b80;
+  border-radius: 4px;
+  height: 17rem;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  bottom: 45px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    padding-inline: 10px;
+    height: 3.6rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 3px;
+    }
+
+    &.sacramento,
+    &.hi-melody {
+      font-size: 2rem;
+    }
+
+    &.selected-font {
+      background-color: rgba($color: #fff, $alpha: 0.1);
+    }
+  }
+}

@@ -1,0 +1,119 @@
+.note {
+  position: relative;
+  max-width: 300px;
+  height: 270px;
+  align-self: start;
+  transition: border .3s ease-in-out;
+  border: .5px solid #393a38;
+  padding: 5px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    border: .5px solid #e8d7cb;
+  }
+
+  .title_box {
+    position: relative;
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      &::after{
+        transform: scale(0.7);
+        opacity: 0;
+        transition: all .4s ease-in-out;
+        content: attr(data-descripton);
+        position: absolute;
+        top: -10px;
+        right: -25px;
+        width: 350px;
+        height: 30px;
+        border-radius: 10px;
+        overflow-y: auto;
+        padding: 10px;
+        z-index: 20;
+        background-color: gray;
+        white-space: normal;
+      }
+
+      &:hover {
+        &::after {
+          content: attr(data-descripton);
+          position: absolute;
+          opacity: 1;
+          transform: scale(1);
+          transition-delay: .2s;
+          top: -40px;
+          right: 50px;
+          width: 370px;
+          height: 360px;
+          border-radius: 10px;
+          padding: 10px;
+          z-index: 50;
+          background-color: gray;
+          white-space: normal;
+
+        }
+      }
+    }
+  }
+
+
+  &_box {
+    overflow: hidden;
+    margin: 10px;
+  }
+
+  &_image_box {
+    display: flex;
+    height: 180px;
+    transition: margin-left .7s;
+
+    > figure {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
+    }
+  }
+
+  .button_box {
+    position: absolute;
+    z-index: 10;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    button {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      color: #a6a1a1;
+      backdrop-filter: blur(8px);
+
+      &:hover {
+        i {
+          color: honeydew;
+        }
+      }
+
+    }
+  }
+}
+
+.shadow {
+  box-shadow: 7px 7px 0 1px rgb(77, 86, 87);
+}

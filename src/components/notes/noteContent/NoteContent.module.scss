@@ -1,0 +1,63 @@
+.content {
+  input,
+  textarea {
+    border: none;
+    background: inherit;
+    font-size: 20px;
+    padding: 5px;
+    color: white;
+    width: 100%;
+  }
+
+  &_title_input {
+    margin-bottom: 20px;
+  }
+
+  &_textarea {
+    resize: none;
+    height: 350px;
+  }
+
+  &_image_box {
+    grid-template-columns: 1fr;
+    display: grid;
+    grid-gap: 6px;
+
+    :hover {
+      button {
+        transition: transform 0.3s;
+        transform: scale(1);
+
+      }
+    }
+    > div {
+      position: relative;
+
+      button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        color: #9a9691;
+        backdrop-filter: blur(6px);
+        transform: scale(0);
+        border: 1px solid #313131;
+        border-radius: 6px;
+
+        &:hover {
+          transition: color 0.3s ease;
+          color: white;
+        }
+      }
+      img {
+        width: 100% !important;
+        height: 150px;
+        object-fit: cover;
+      }
+    }
+
+
+  }
+
+}

@@ -1,0 +1,42 @@
+.note {
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  height: 500px;
+  background-color: #404042;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+  opacity: 0;
+  z-index: -2;
+  padding: 14px;
+
+  &.note-visible {
+    opacity: 1!important;
+    transform: scale(1);
+    z-index: 100!important;
+  }
+
+
+  &_button_box {
+    display: flex;
+    justify-content: space-between;
+  }
+  &_content_container {
+    height: 88%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #e8d7cb;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+}

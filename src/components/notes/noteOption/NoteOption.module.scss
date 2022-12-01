@@ -1,0 +1,47 @@
+.option {
+  width: 100%;
+  display: flex;
+  position: relative;
+
+
+  &_box {
+    display: flex;
+    align-items: center;
+
+    i {
+      color: white;
+    }
+
+    > label {
+      margin-left: 15px;
+    }
+
+    > button {
+      margin-left: 15px;
+    }
+
+    .font_select {
+      cursor: pointer;
+      width: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #323133;
+      text-align: center;
+      padding: 5px;
+      font-family: 'Glacial Indifference', sans-serif;
+
+      i {
+
+        transition: transform 0.4s;
+      }
+
+      .rotate_icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+
+}
+

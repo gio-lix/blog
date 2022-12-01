@@ -1,0 +1,41 @@
+.font_dropdown {
+  width: 200px;
+  height: 255px;
+  position: absolute;
+  left: 0;
+  bottom: 70px;
+  background-color: #323133;
+  border: 1px solid #727272;
+  overflow: auto;
+
+  font-size: 1.4rem;
+
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  > li {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding-inline: 1.2rem;
+    height: 3.6rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 3px;
+    }
+    &.sacramento,
+    &.hi-melody {
+      font-size: 2rem;
+    }
+
+    &.selected-font {
+      background-color: rgba($color: #fff, $alpha: 0.1);
+    }
+  }
+}

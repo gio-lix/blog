@@ -1,0 +1,37 @@
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .solid_colours {
+    display: flex;
+
+    > div {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+
+      > button {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: white;
+      }
+    }
+  }
+}
+
+.palette_container {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  width: 300px;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #2d2d2d;
+}
+
