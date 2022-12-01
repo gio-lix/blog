@@ -22,14 +22,6 @@ const ThemePalette = () => {
     }
 
 
-    const themeClasses = (theme: string) => {
-        let themeClass: string = theme;
-        if (theme === "dark") {
-            themeClass = "default-theme-button"
-        }
-        return theme === activeTheme ? `active-theme ${themeClass}` : themeClass;
-    }
-
 
     return (
         <div className={s.palette_container}>

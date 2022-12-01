@@ -9,7 +9,7 @@ type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, A
 export const exitNoteDialog = (page: string): AppThunk =>
     (dispatch, getSate) => {
         if (page !== "trash") {
-            if (getSate().isNoteNew && getSate().noteText.trim().length > 0) {
+            if (getSate().isNoteNew) {
                 dispatch(noteActions.createOrTrash("create"));
             } else if (!getSate().isNoteNew) {
                 dispatch(noteActions.updateNoteContent());

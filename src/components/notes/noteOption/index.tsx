@@ -37,10 +37,11 @@ const NoteOptions: FC<Props> = ({
     }
 
     const handleTogglePalette = () => {
-        onUpdateElementsVisibility({
-            fontSelect: false,
-            themePalette: !elementsVisible.themePalette
-        });
+
+        // onUpdateElementsVisibility({
+        //     fontSelect: false,
+        //     themePalette: !elementsVisible.themePalette
+        // });
     }
 
     const handleChangeFile = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -57,10 +58,10 @@ const NoteOptions: FC<Props> = ({
         <div className={s.option}>
             {activePage !== "trash" && (
                 <div className={s.option_box} >
-                    <span className={clsx(s.font_select)} onClick={handleToggleFontSelect}>
-                        Font Family
-                        <i className={clsx("material-icons", rotate && s.rotate_icon)}>expand_more</i>
-                    </span>
+                    {/*<span className={clsx(s.font_select)} onClick={handleToggleFontSelect}>*/}
+                    {/*    Font Family*/}
+                    {/*    <i className={clsx("material-icons", rotate && s.rotate_icon)}>expand_more</i>*/}
+                    {/*</span>*/}
                     <label htmlFor="file">
                         <i className="material-icons">image</i>
                         <input
@@ -72,9 +73,9 @@ const NoteOptions: FC<Props> = ({
                             hidden
                         />
                     </label>
-                    <button onClick={handleTogglePalette}>
-                        <i className="material-icons">border_style</i>
-                    </button>
+                    {/*<button onClick={handleTogglePalette}>*/}
+                    {/*    <i className="material-icons">border_style</i>*/}
+                    {/*</button>*/}
                     <button
                         onClick={handleTrashNote} title="Delete"
                         disabled={!noteText.trim().length}

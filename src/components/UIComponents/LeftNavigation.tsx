@@ -29,30 +29,40 @@ const LeftNavigation = () => {
     const showNoteDialog = () => {
         dispatch(noteActions.noteDialogIsVisible(true));
     }
+
+
+    const buttonAction = () => {
+        dispatch(noteActions.noteIsNew(true));
+        dispatch(noteActions.noteDialogIsVisible(true));
+    }
     return (
         <div className={clsx(s.navigation)}>
-            <div className={clsx(s.navigation_buttons, focusedPage)}>
-                <button onClick={() => switchPageHandler("")}>
-                    <i className="material-icons">home</i>
-                </button>
-                <button onClick={() => switchPageHandler("favourites")}>
-                    <i className="material-icons">favorite_border</i>
-                </button>
-                <button onClick={() => switchPageHandler("trash")}>
-                    <i className="material-icons">delete_outline</i>
-                </button>
-            </div>
-            <div className={s.add_box}>
-                {savedNotes.length > 0 && (
-                    <h2 onClick={showNoteDialog}>
-                        <i className="material-icons">
-                            description
-                        </i>
-                        <span>
-                            add more
-                        </span>
-                    </h2>
-                )}
+            <div className={s.nav}>
+                <div className={clsx(s.navigation_buttons,focusedPage)}>
+                    <button onClick={() => switchPageHandler("")}>
+                        <i className="material-icons">home</i>
+                    </button>
+                    <button onClick={() => switchPageHandler("favourites")}>
+                        <i className="material-icons">favorite_border</i>
+                    </button>
+                    <button onClick={() => switchPageHandler("trash")}>
+                        <i className="material-icons">delete_outline</i>
+                    </button>
+                </div>
+                <div className={s.add_box}>
+                    {savedNotes.length > 0 && (
+                        <button onClick={buttonAction} className={`comical-shadow-clickable `}>
+                            <span>
+                                <i className="material-icons">
+                                  add
+                                </i>
+                                new note
+                            </span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

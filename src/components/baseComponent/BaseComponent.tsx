@@ -7,7 +7,6 @@ import NoteDialog from "../notes/noteDialog";
 import {exitNoteDialog} from "../../redux/action/action-creator";
 import {NoteType} from "../../types/types";
 import SaveNote from "../notes/saveNote";
-import {useLocation} from "react-router-dom";
 
 interface Props {
     activePage: string,
@@ -29,12 +28,9 @@ const BaseComponent: FC<Props> = ({
                                   }) => {
     const dispatch = useDispatch()
     const thunkDispatch = useThunkDispatch();
-    const {isNoteDialogVisible, noteTheme} = useSelector((state: RootState) => state)
-
+    const {isNoteDialogVisible} = useSelector((state: RootState) => state)
     const [notesUnavailable, setNotesUnavailable] = useState(true);
     const [overlayClasses, setOverlayClasses] = useState("");
-    // const [deleteConfirmVisible, setDeleteConfirmVisibility] = useState(false);
-    // const [deleteAmount, setDeleteAmount] = useState("");
 
 
     const closeNoteDialog = () => {
@@ -70,8 +66,15 @@ const BaseComponent: FC<Props> = ({
 
 
     return (
-        <div style={{minHeight: "100vh"}}>
-            <div className={clsx("overlay", overlayClasses)} onClick={closeNoteDialog}/>
+        <div>
+            <div
+                className={clsx("overlay", overlayClasses)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    closeNoteDialog()
+                }}
+
+            />
             <div className={clsx("background_blur")}/>
             <NoteDialog
                 activePage={activePage}
@@ -100,7 +103,8 @@ const BaseComponent: FC<Props> = ({
                 <div className={s.notes_unavailable}>
                    <span className={notesUnavailableClass}>
                         {activePage === "home" && (
-                            <h2 onClick={showNoteDialog}>
+                            <h2
+                                onClick={showNoteDialog}>
                                 {notesUnavailableIcon}
                                 add !?
                             </h2>
@@ -113,4 +117,4 @@ const BaseComponent: FC<Props> = ({
     );
 };
 
-export default memo(BaseComponent);
+export default BaseComponent;

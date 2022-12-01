@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, memo, useEffect, useState} from 'react';
 import s from "./NoteDialog.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {noteActions, RootState, useThunkDispatch} from "../../../redux/store";
@@ -7,6 +7,11 @@ import {exitNoteDialog} from "../../../redux/action/action-creator";
 import NoteContent from "../noteContent";
 import {ElementsVisible} from "../../../types/types";
 import NoteOptions from "../noteOption";
+
+interface IVisible {
+    fontSelect: boolean,
+    themePalette: boolean
+}
 
 interface Props {
     activePage: string,
@@ -19,9 +24,9 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
     const thunkDispatch = useThunkDispatch();
 
     const {isNoteDialogVisible,noteTheme,noteFont} = useSelector((state: RootState) => state);
-    const [noteDialogClasses, setNoteDialogClasses] = useState("");
+    const [noteDialogClasses, setNoteDialogClasses] = useState<string>("");
 
-    const [elementsVisible, setElementsVisible] = useState({
+    const [elementsVisible, setElementsVisible] = useState<IVisible>({
         fontSelect: false,
         themePalette: false
     });
@@ -38,7 +43,7 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
             themePalette: false
         });
     }
-    const toggleFavourite = (e: React.MouseEvent) => {
+    const toggleFavourite = () => {
         dispatch(noteActions.setNoteFavourite());
     }
     const handleCloseDialog = () => {
@@ -96,4 +101,4 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
     );
 };
 
-export default NoteDialog;
+export default memo(NoteDialog);
