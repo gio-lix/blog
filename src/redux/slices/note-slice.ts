@@ -52,7 +52,6 @@ export const noteStateSlice = createSlice({
             state.noteIsFavourite = !state.noteIsFavourite;
         },
         createOrTrash(state, action: PayloadAction<string>) {
-            console.log("state - ",state)
             const newNote: NoteType = {
                 id: new Date().toISOString(),
                 title: state.noteTitle.trim(),
@@ -62,7 +61,6 @@ export const noteStateSlice = createSlice({
                 font: state.noteFont,
                 isFavourite: state.noteIsFavourite,
             };
-            console.log("newNote - ",newNote)
 
             if (action.payload === "create") {
                 state.savedNotes.push(newNote);

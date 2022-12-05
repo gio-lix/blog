@@ -13,7 +13,7 @@ const HomePage = () => {
 
 
     return (
-        <section >
+        <>
             <BaseComponent
                 notes={notes}
                 activePage="home"
@@ -21,7 +21,7 @@ const HomePage = () => {
                 notesUnavailableInfo={notesUnavailableInfo}
                 notesUnavailableIcon={notesUnavailableIcon}
             />
-        </section>
+        </>
     );
 };
 

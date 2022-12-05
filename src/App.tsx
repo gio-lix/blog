@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import {Route, Routes, BrowserRouter} from "react-router-dom";
 import LeftNavigation from "./components/UIComponents/LeftNavigation";
 import HomePage from "./pages/Home";

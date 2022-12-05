@@ -23,7 +23,7 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
     const dispatch = useDispatch();
     const thunkDispatch = useThunkDispatch();
 
-    const {isNoteDialogVisible,noteTheme,noteFont} = useSelector((state: RootState) => state);
+    const {isNoteDialogVisible,noteIsFavourite,noteTheme,noteFont} = useSelector((state: RootState) => state);
     const [noteDialogClasses, setNoteDialogClasses] = useState<string>("");
 
     const [elementsVisible, setElementsVisible] = useState<IVisible>({
@@ -75,12 +75,17 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
         }}
             className={clsx(s.note, noteDialogClasses)}>
             <div className={s.note_button_box}>
-                <button onClick={handleCloseDialog}>
-                    <i className="material-icons">arrow_back</i>
-                </button>
-                <button onClick={toggleFavourite}>
-                    <i className="material-icons">favorite</i>
-                </button>
+                    <i
+                        onClick={handleCloseDialog}
+                        className="material-icons">
+                        arrow_back
+                    </i>
+                    <i
+                        onClick={toggleFavourite}
+                        className="material-icons"
+                    >
+                        {noteIsFavourite ? "favorite" : "favorite_border"}
+                    </i>
             </div>
 
             <div className={s.note_content_container}>

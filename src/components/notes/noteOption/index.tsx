@@ -1,7 +1,6 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, useState} from 'react';
 import s from "./NoteOption.module.scss"
 import {ElementsVisible} from "../../../types/types";
-import clsx from "clsx";
 import {useDispatch, useSelector} from "react-redux";
 import {noteActions, RootState, useThunkDispatch} from "../../../redux/store";
 import {moveToTrash} from "../../../redux/action/action-creator";

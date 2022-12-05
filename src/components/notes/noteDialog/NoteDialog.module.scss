@@ -8,11 +8,10 @@
   left: 50%;
   top: 50%;
   transform: translate(-50% , -50%) scale(.7);
-  transition: all .3s ease-in-out;
+  transition: all .3s ease;
   opacity: 0;
   z-index: -2;
   padding: 14px;
-
 
 
   &_button_box {

@@ -39,7 +39,6 @@ const NoteContent: FC<Props> = ({onHideFontAndPalette, activePage}) => {
     }
 
     useEffect(() => {
-
         if (noteImages.length >= 3) {
             setImageSize({
                 columns: "repeat(3, 1fr)",

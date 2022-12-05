@@ -73,7 +73,6 @@ const BaseComponent: FC<Props> = ({
                     e.stopPropagation();
                     closeNoteDialog()
                 }}
-
             />
             <div className={clsx("background_blur")}/>
             <NoteDialog
