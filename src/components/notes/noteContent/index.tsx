@@ -1,23 +1,27 @@
 import React, {FC, memo, useEffect, useRef, useState} from 'react';
-import s from "./NoteContent.module.scss"
+import styles from "./NoteContent.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {noteActions, RootState} from "../../../redux/store";
+
+interface ISizes {
+    height: string,
+    columns: string
+}
 
 interface Props {
     activePage: string,
     onHideFontAndPalette: () => void
 }
 
-const NoteContent: FC<Props> = ({onHideFontAndPalette, activePage}) => {
+const NoteContent: FC<Props> = ({activePage}) => {
     const dispatch = useDispatch()
     const {noteTitle, noteText, noteImages} = useSelector((state: RootState) => state)
 
     const noteAreaRef = useRef<HTMLTextAreaElement>(null)
-    const [imageSizes,setImageSize] = useState({
-        height:"",
-        columns:""
+    const [imageSizes, setImageSize] = useState<ISizes>({
+        height: "",
+        columns: ""
     })
-
 
 
     const syncNoteTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,13 +59,13 @@ const NoteContent: FC<Props> = ({onHideFontAndPalette, activePage}) => {
                 height: "300px"
             })
         }
-    },[noteImages.length])
+    }, [noteImages.length])
 
     return (
-        <div className={s.content}>
+        <div className={styles.content}>
             <div>
                 {noteImages.length > 0 && (
-                    <div className={s.content_image_box} style={{gridTemplateColumns:`${imageSizes.columns}`}}>
+                    <div className={styles.content_image_box} style={{gridTemplateColumns: `${imageSizes.columns}`}}>
                         {noteImages.map((image, index) => (
                             <div key={index}>
                                 <img
@@ -86,7 +90,7 @@ const NoteContent: FC<Props> = ({onHideFontAndPalette, activePage}) => {
                     type="text"
                     value={noteTitle}
                     placeholder="Title"
-                    className={s.content_title_input}
+                    className={styles.content_title_input}
                     disabled={activePage === "trash"}
                 />
 
@@ -95,7 +99,7 @@ const NoteContent: FC<Props> = ({onHideFontAndPalette, activePage}) => {
                     ref={noteAreaRef}
                     value={noteText}
                     placeholder="Your note"
-                    className={s.content_textarea}
+                    className={styles.content_textarea}
                     disabled={activePage === "trash"}>
 				</textarea>
             </div>

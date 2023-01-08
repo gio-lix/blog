@@ -1,7 +1,7 @@
-import React from 'react';
-import BaseComponent from "../components/baseComponent/BaseComponent";
-import {RootState} from "../redux/store";
 import {useSelector} from "react-redux";
+import BaseComponent from "../components/baseComponent/BaseComponent";
+
+import {RootState} from "../redux/store";
 
 const Trash = () => {
     const notes = useSelector((state: RootState) => state.trashedNotes);

@@ -1,11 +1,15 @@
-import React, {FC, memo, useEffect, useState} from 'react';
-import s from "./BaseComponent.module.scss"
+import {FC, useEffect, useState} from 'react';
 import clsx from "clsx";
+
+import styles from "./BaseComponent.module.scss"
+
 import {useDispatch, useSelector} from "react-redux";
 import {noteActions, RootState, useThunkDispatch} from "../../redux/store";
 import NoteDialog from "../notes/noteDialog";
-import {exitNoteDialog} from "../../redux/action/action-creator";
+
 import {NoteType} from "../../types/types";
+
+import {exitNoteDialog} from "../../redux/action/action-creator";
 import SaveNote from "../notes/saveNote";
 
 interface Props {
@@ -14,7 +18,6 @@ interface Props {
     notesUnavailableClass?: string,
     notesUnavailableInfo: string,
     notesUnavailableIcon: any,
-    // notes: NoteType[]
     notes: any
 }
 
@@ -22,21 +25,19 @@ const BaseComponent: FC<Props> = ({
                                       notes,
                                       notesUnavailableClass,
                                       notesUnavailableIcon,
-                                      notesUnavailableInfo,
-                                      pageTitle,
                                       activePage
                                   }) => {
     const dispatch = useDispatch()
     const thunkDispatch = useThunkDispatch();
     const {isNoteDialogVisible} = useSelector((state: RootState) => state)
-    const [notesUnavailable, setNotesUnavailable] = useState(true);
-    const [overlayClasses, setOverlayClasses] = useState("");
+    const [notesUnavailable, setNotesUnavailable] = useState<boolean>(true);
+    const [overlayClasses, setOverlayClasses] = useState<string>("");
 
 
     const closeNoteDialog = () => {
         thunkDispatch(exitNoteDialog(activePage))
     }
-    const showNoteDialog = ( ) => {
+    const showNoteDialog = () => {
         dispatch(noteActions.noteDialogIsVisible(true));
     }
 
@@ -82,7 +83,7 @@ const BaseComponent: FC<Props> = ({
             />
 
             {!notesUnavailable && (
-                <div className={s.notes}>
+                <div className={styles.notes}>
                     {notes.map((note: NoteType) => (
                         <SaveNote
                             key={note.id}
@@ -99,7 +100,7 @@ const BaseComponent: FC<Props> = ({
             )}
 
             {notesUnavailable && (
-                <div className={s.notes_unavailable}>
+                <div className={styles.notes_unavailable}>
                    <span className={notesUnavailableClass}>
                         {activePage === "home" && (
                             <h2
@@ -111,7 +112,6 @@ const BaseComponent: FC<Props> = ({
                    </span>
                 </div>
             )}
-
         </div>
     );
 };

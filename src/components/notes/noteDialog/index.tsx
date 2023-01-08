@@ -1,12 +1,18 @@
 import React, {FC, memo, useEffect, useState} from 'react';
-import s from "./NoteDialog.module.scss"
-import {useDispatch, useSelector} from "react-redux";
-import {noteActions, RootState, useThunkDispatch} from "../../../redux/store";
 import clsx from "clsx";
+
+import styles from "./NoteDialog.module.scss"
+
+import {useDispatch, useSelector} from "react-redux";
 import {exitNoteDialog} from "../../../redux/action/action-creator";
+
+import {noteActions, RootState, useThunkDispatch} from "../../../redux/store";
+
 import NoteContent from "../noteContent";
-import {ElementsVisible} from "../../../types/types";
+
 import NoteOptions from "../noteOption";
+
+import {ElementsVisible} from "../../../types/types";
 
 interface IVisible {
     fontSelect: boolean,
@@ -73,8 +79,8 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
                 backgroundColor:`${noteTheme.colour}`,
                 boxShadow: `10px 10px 20px -8px ${noteTheme.colour}`
         }}
-            className={clsx(s.note, noteDialogClasses)}>
-            <div className={s.note_button_box}>
+            className={clsx(styles.note, noteDialogClasses)}>
+            <div className={styles.note_button_box}>
                     <i
                         onClick={handleCloseDialog}
                         className="material-icons">
@@ -88,7 +94,7 @@ const NoteDialog: FC<Props> = ({onShowDeleteConfirm, onSyncDeleteAmount, activeP
                     </i>
             </div>
 
-            <div className={s.note_content_container}>
+            <div className={styles.note_content_container}>
                 <NoteContent
                     activePage={activePage}
                     onHideFontAndPalette={hideFontAndPalette}

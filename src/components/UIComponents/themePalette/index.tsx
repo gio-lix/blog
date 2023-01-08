@@ -1,8 +1,12 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import s from "./ThemePalette.module.scss"
-import {noteActions, RootState} from "../../../redux/store";
+
 import clsx from "clsx";
+
+import {useDispatch, useSelector} from "react-redux";
+
+import styles from "./ThemePalette.module.scss"
+
+import {noteActions, RootState} from "../../../redux/store";
 
 const ThemePalette = () => {
 
@@ -12,8 +16,6 @@ const ThemePalette = () => {
     const dispatch = useDispatch();
     const activeTheme = useSelector((state: RootState) => state.noteTheme.colour);
 
-
-
     const themeChange = (colour: string, isGradient: boolean) => {
         dispatch(noteActions.setNoteTheme({
             colour: colour,
@@ -21,12 +23,10 @@ const ThemePalette = () => {
         }));
     }
 
-
-
     return (
-        <div className={s.palette_container}>
-            <div className={clsx(s.palette)}>
-               <div className={s.solid_colours}>
+        <div className={styles.palette_container}>
+            <div className={clsx(styles.palette)}>
+               <div className={styles.solid_colours}>
                    <b>Solid</b>
                    <div>
                        {solidColourList.map((solidColour) => {
@@ -43,8 +43,8 @@ const ThemePalette = () => {
                    </div>
                </div>
             </div>
-            <div className={clsx(s.palette)}>
-                <div className={s.solid_colours}>
+            <div className={clsx(styles.palette)}>
+                <div className={styles.solid_colours}>
                     <b>Solid</b>
                     <div>
                         {solidColourList.map((solidColour) => (

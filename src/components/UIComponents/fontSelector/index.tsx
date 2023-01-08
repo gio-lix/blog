@@ -1,5 +1,4 @@
 import React from 'react';
-import s from "./FontSelect.module.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {noteActions, RootState} from "../../../redux/store";
 

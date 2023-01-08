@@ -1,5 +1,6 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {NoteType, ThemeType} from "../../types/types";
+
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {filterNotes, findNote} from "../helpers/helper-functions";
 
 
@@ -18,7 +19,6 @@ export const initialState = {
     noteIsFavourite: false,
 };
 
-type State = typeof initialState
 
 export const noteStateSlice = createSlice({
     name: "Notes",

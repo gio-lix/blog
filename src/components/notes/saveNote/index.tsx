@@ -1,9 +1,12 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
-import s from "./SaveNote.module.scss"
+import React, {useLayoutEffect, useState} from 'react';
+import clsx from "clsx";
+
+import styles from "./SaveNote.module.scss"
+
 import {NoteType} from "../../../types/types";
+
 import {useThunkDispatch} from "../../../redux/store";
 import {editNote} from "../../../redux/action/action-creator";
-import clsx from "clsx";
 
 const SaveNote = ({images, id, isFavourite, text, theme, title, font}: NoteType) => {
     const [imageColumns, setImageColumns] = useState({columns: ""});
@@ -48,17 +51,17 @@ const SaveNote = ({images, id, isFavourite, text, theme, title, font}: NoteType)
 
 
     return (
-        <div className={s.note} onClick={editNoteContent}>
+        <div className={styles.note} onClick={editNoteContent}>
             {title && (<h3 className="title">{title}</h3>)}
-            <div className={s.title_box}>
+            <div className={styles.title_box}>
                 <p data-descripton={text}>
                     {text}
                 </p>
             </div>
             {images.length > 0 && (
                 <div
-                    className={clsx(s.note_box, images.length > 1 && s.shadow)}>
-                    <div className={s.note_image_box}
+                    className={clsx(styles.note_box, images.length > 1 && styles.shadow)}>
+                    <div className={styles.note_image_box}
                          style={{
                              width: `calc(100% * ${images.length})`,
                              marginLeft: `calc(${currentIndex} * -100%)`
@@ -69,7 +72,7 @@ const SaveNote = ({images, id, isFavourite, text, theme, title, font}: NoteType)
                             </figure>
                         ))}
                         {images.length > 1 && (
-                            <div className={s.button_box}>
+                            <div className={styles.button_box}>
                                 <button onClick={(e) => {
                                     e.stopPropagation();
                                     handleButton("left")
@@ -91,8 +94,6 @@ const SaveNote = ({images, id, isFavourite, text, theme, title, font}: NoteType)
                     </div>
                 </div>
             )}
-
-
         </div>
     );
 };

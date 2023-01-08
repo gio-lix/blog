@@ -1,18 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import s from "./Leftnavigation.module.scss"
+
 import clsx from "clsx"
-import {useLocation, useNavigate} from "react-router-dom";
+
+import styles from "./Leftnavigation.module.scss"
+
 import {noteActions, RootState} from "../../redux/store";
+
+import {useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 const LeftNavigation = () => {
     const {pathname} = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch()
+
     const {savedNotes} = useSelector((state: RootState) => state)
-    const [focusedPage, setFocusedPage] = useState("focus-home");
-    const [deleteConfirmVisible, setDeleteConfirmVisibility] = useState(false);
-    const [deleteAmount, setDeleteAmount] = useState("");
+
+    const [focusedPage, setFocusedPage] = useState<string>("focus-home");
+    const [deleteConfirmVisible, setDeleteConfirmVisibility] = useState<boolean>(false);
+    const [deleteAmount, setDeleteAmount] = useState<string>("");
     const switchPageHandler = (page: string) => {
         navigate(`/${page}`);
     }
@@ -36,9 +42,9 @@ const LeftNavigation = () => {
         dispatch(noteActions.noteDialogIsVisible(true));
     }
     return (
-        <div className={clsx(s.navigation)}>
-            <div className={s.nav}>
-                <div className={clsx(s.navigation_buttons,focusedPage)}>
+        <div className={clsx(styles.navigation)}>
+            <div className={styles.nav}>
+                <div className={clsx(styles.navigation_buttons,focusedPage)}>
                     <button onClick={() => switchPageHandler("")}>
                         <i className="material-icons">home</i>
                     </button>
@@ -49,7 +55,7 @@ const LeftNavigation = () => {
                         <i className="material-icons">delete_outline</i>
                     </button>
                 </div>
-                <div className={s.add_box}>
+                <div className={styles.add_box}>
                     {savedNotes.length > 0 && (
                         <button onClick={buttonAction} className={`comical-shadow-clickable `}>
                             <span>

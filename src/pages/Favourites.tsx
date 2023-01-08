@@ -1,11 +1,11 @@
-import React from 'react';
-import {useSelector} from "react-redux";
 import {RootState} from "../redux/store";
+
 import BaseComponent from "../components/baseComponent/BaseComponent";
+
+import {useSelector} from "react-redux";
 import {filterFavourites} from "../redux/helpers/helper-functions";
 
 const Favourites = () => {
-    // const notes = useSelector((state: RootState) => state.savedNotes);
     const {savedNotes} = useSelector((state: RootState) => state);
     const pageTitle = {main: "Favourites"};
     const notesUnavailableClass = "inline-description";

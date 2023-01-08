@@ -1,9 +1,13 @@
 import React, {FC, useState} from 'react';
-import s from "./NoteOption.module.scss"
+
+import styles from "./NoteOption.module.scss"
+
 import {ElementsVisible} from "../../../types/types";
-import {useDispatch, useSelector} from "react-redux";
 import {noteActions, RootState, useThunkDispatch} from "../../../redux/store";
+
+import {useDispatch, useSelector} from "react-redux";
 import {moveToTrash} from "../../../redux/action/action-creator";
+
 import FontSelect from "../../UIComponents/fontSelector";
 import ThemePalette from "../../UIComponents/themePalette";
 
@@ -23,7 +27,7 @@ const NoteOptions: FC<Props> = ({
                                     activePage
                                 }) => {
     const {noteText} = useSelector((state: RootState) => state);
-    const [rotate, setRotate] = useState(false)
+    const [rotate, setRotate] = useState<boolean>(false)
     const dispatch = useDispatch()
     const thunkDispatch = useThunkDispatch();
 
@@ -54,9 +58,9 @@ const NoteOptions: FC<Props> = ({
     }
 
     return (
-        <div className={s.option}>
+        <div className={styles.option}>
             {activePage !== "trash" && (
-                <div className={s.option_box} >
+                <div className={styles.option_box} >
                     {/*<span className={clsx(s.font_select)} onClick={handleToggleFontSelect}>*/}
                     {/*    Font Family*/}
                     {/*    <i className={clsx("material-icons", rotate && s.rotate_icon)}>expand_more</i>*/}
