@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 500px;
   height: 500px;
-  background-color: #404042;
+  background-color: var(--gray-700);
   left: 50%;
   top: 50%;
   transform: translate(-50% , -50%) scale(.7);
@@ -25,13 +25,13 @@
       width: 3px;
     }
     &::-webkit-scrollbar-track {
-      background: #e8d7cb;
+      background: var(--burlywood-100);
     }
     &::-webkit-scrollbar-thumb {
-      background: #888;
+      background: var(--burlywood-200);
     }
     &::-webkit-scrollbar-thumb:hover {
-      background: #555;
+      background: var(--gray-600);
     }
   }
 }

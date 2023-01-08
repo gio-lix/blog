@@ -33,7 +33,7 @@
     cursor: pointer;
 
     i {
-      color: #de9941;
+      color: var(--gold-yellow-600);
     }
   }
 }
@@ -46,7 +46,7 @@
   transform: translateY(-50%);
 
   i {
-    color: gray;
+    color: var(--gray-500);
     font-size: 40px;
   }
 
